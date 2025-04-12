@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Proctored Testing Framer</title>
+  <title>Proctored Test-Taking</title>
+  <link rel="icon" type="image/png" href="codecurly4.png">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -65,13 +66,20 @@
       margin: 0;
       background-color: #fff;
     }
+    #urlInput {
+  color: transparent;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  caret-color: black; /* So user still sees cursor */
+}
+
   </style>
 </head>
 <body>
 
-  <h2>Enter a URL, or click one of the quick links below</h2>
+  <h2>Enter a URL, or click one of the quick links below to start a Proctored Test</h2>
+    <h3>Note: The text entered in the URL bar is transparent, as to not leak any information.</h3>
   <form id="urlForm">
-    <input type="text" id="urlInput" placeholder="https://example.com" required>
+    <input type="text" id="urlInput" placeholder="Enter URL" required autocomplete="off">
     <button type="submit">Embed</button>
   </form>
 
