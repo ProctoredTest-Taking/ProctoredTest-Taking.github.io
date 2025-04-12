@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proctored Testing Framer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #ffffff;
+      color: #333;
+    }
+
+    input[type="text"] {
+      width: 400px;
+      padding: 8px;
+    }
+
+    button {
+      padding: 8px 12px;
+      margin-left: 5px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .iframe-controls {
+      margin-top: 10px;
+    }
+
+    .bottom-section {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-top: 1px solid #ddd;
+    }
+
+    .bottom-section h3 {
+      margin-bottom: 10px;
+    }
+
+    .bottom-section a {
+      display: inline-block;
+      margin: 5px 10px;
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    .bottom-section a:hover {
+      text-decoration: underline;
+    }
+
+    /* Fullscreen styling */
+    iframe:fullscreen,
+    iframe:-webkit-full-screen,
+    iframe:-ms-fullscreen {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      margin: 0;
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter a URL, or click one of the quick links below</h2>
+  <form id="urlForm">
+    <input type="text" id="urlInput" placeholder="https://example.com" required>
+    <button type="submit">Embed</button>
+  </form>
+
+  <div class="iframe-controls" style="display: none;" id="controls">
+    <button id="fullscreenBtn">Fullscreen</button>
+  </div>
+
+  <iframe id="iframe" src="" style="display: none;" allowfullscreen></iframe>
+
+  <div class="bottom-section">
+    <h3>Quick Links</h3>
+    <p>Click any of the links below to quickly embed that site:</p>
+    <div id="quickLinks">
+      <a href="https://bandogsfrom.peeinthesnow.com/">Rammerhead</a>
+      <a href="https://pirate.wildsurf.net/">Rammerhead</a>
+      <a href="https://packetyo.nanbang.com.tr/">Rammerhead</a>
+      <a href="https://holaernesto.triplewipe.ru/">Rammerhead</a>
+      <a href="https://jdsiojjifjis.oovb.com/">Rammerhead</a>
+      <a href="https://mathsfun.undergames.cl/">Rammerhead</a>
+      <a href="https://schoolnotes.h0rst.us/">Rammerhead</a>
+      <a href="https://schoolnotes.followork.net/">Rammerhead</a>
+      <a href="https://bsd48.tecwagen.cl/">Rammerhead</a>
+      <a href="https://21312sdrammer23w.hoffer.cx/">Rammerhead</a>
+      <a href="https://rammerdabest82367.hoffer.cx/">Rammerhead</a>
+      <a href="https://ezezboi.sgitribuna.com/">Rammerhead</a>
+      <a href="https://kinemala.webs.vc/">Rammerhead</a>
+      <a href="https://anthonylikes.hardsoft.nu/">Rammerhead</a>
+      <a href="https://leandrito.dream.org.il/">Rammerhead</a>
+      <a href="https://proxy.gjhacked.l5.ca/">Rammerhead</a>
+      <a href="https://aidansunblocker.r-o-o-t.net/">Rammerhead</a>
+      <a href="https://officialqmlinkat.gg.azvq4hdt.conifera.cl/">Rammerhead</a>
+      <a href="https://linkis.gg.backslash.azvq4hdt.conifera.cl/">Rammerhead</a>
+      <a href="https://flint.and.steeel.conifera.cl/">Rammerhead</a>
+      <a href="https://andrewyinsucks.conifera.cl/">Rammerhead</a>
+      <a href="https://please.work.joe.dj/">Rammerhead</a>
+      <a href="https://let.me.play.enemyterritory.org/">Rammerhead</a>
+      <a href="https://vakka.mooo.info/">Rammerhead</a>
+      <a href="https://chickenbutt.epicgamer.org/">Rammerhead</a>
+      <a href="https://winnergreenpizza.ospa.fi/">Rammerhead</a>
+      <a href="https://199199199199.cbu.net/">Rammerhead</a>
+      <a href="https://ixlstudy.keystoneuniformcap.com/">Rammerhead</a>
+      <a href="https://jdishim.wolnoscwkieszeni.pl/">Rammerhead</a>
+      <a href="https://signup.skope.net.au/">Rammerhead</a>
+      <a href="https://crimsona.soon.it/">Rammerhead</a>
+      <a href="https://run-away.run.place/">Rammerhead</a>
+      <a href="https://skibidl.toilets.tk/">Rammerhead</a>
+      <a href="https://urinateontheanusanddefecate.toilets.tk/">Rammerhead</a>
+      <a href="https://unkomankochinkoanalpooppee.toilets.tk/">Rammerhead</a>
+      <a href="https://browser.rammerhead.org/">Rammerhead</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('urlForm');
+    const urlInput = document.getElementById('urlInput');
+    const iframe = document.getElementById('iframe');
+    const controls = document.getElementById('controls');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+    const quickLinks = document.getElementById('quickLinks');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      embedURL(urlInput.value);
+    });
+
+    fullscreenBtn.addEventListener('click', function() {
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      } else {
+        alert("Fullscreen not supported in this browser.");
+      }
+    });
+
+    quickLinks.addEventListener('click', function(event) {
+      if (event.target.tagName === 'A') {
+        event.preventDefault();
+        const url = event.target.href;
+        urlInput.value = url;
+        embedURL(url);
+      }
+    });
+
+    function embedURL(url) {
+      iframe.src = url;
+      iframe.style.display = 'block';
+      controls.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
